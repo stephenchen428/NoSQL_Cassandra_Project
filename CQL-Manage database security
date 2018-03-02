@@ -1,0 +1,36 @@
+--Change the authenticator option in the cassandra.yaml file to PasswordAuthenticator
+
+--create user accounts
+--superuser automatically be granted all permissions on all keyspaces
+create user testuser1 with password '112233' superuser;
+create user testuser2 with password '112233' nosuperuser;
+
+--switch to user account without ending the CQL shell session
+login testuser1
+
+--alter users
+alter user testuser1 nosuperuser;
+alter user testuser2 with password '12345';
+
+--drop user 
+drop user if exists testuser2;
+
+--create a role
+create role test_admin;
+
+--grant and revoke permissions on the role
+grant all permissions on keyspace example_keyspace TO test_admin;
+grant select on nba_regularseason_1617.teaminfo TO test_admin;
+
+--grant INSERT,UPDATE,DELETE queries on teaminfo tables
+grant modify on nba_regularseason_1617.teaminfo To test_admin;
+
+--revoke UPDATE queries on teaminfo tables
+revoke update on nba_regularseason_1617.teamscore FROM test_admin;
+
+--View the role's permissions
+list all permission of test_admin;
+
+--Assign the role to the external user
+grant test_admin to testuser1;
+

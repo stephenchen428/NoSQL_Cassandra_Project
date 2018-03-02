@@ -1,0 +1,13 @@
+CREATE FUNCTION IF NOT EXISTS nba_regularseason_1617.percentage(num1 double,num2 double) 
+CALLED ON NULL INPUT
+RETURNS double 
+LANGUAGE java AS 
+$$ num1/num2*100 $$;
+
+
+--test1
+select player_id,player_fname, player_lname,
+percentage(fgm,fga)as "FG%",percentage("3PM","3PA")as "3P%"
+from playerinfo
+where team_id='CHI'
+ALLOW FILTERING;

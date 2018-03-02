@@ -1,0 +1,10 @@
+--Create an index on a set to find all the team that have been on a particular conference.
+
+create index team_conference on nba_regularseason_1617.teaminfo(conference);
+
+select * from nba_regularseason_1617.teaminfo
+where conference = 'Western' and division='Southwest'
+ALLOW FILTERING;
+
+drop index team_conference;
+

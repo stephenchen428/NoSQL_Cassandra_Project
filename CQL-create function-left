@@ -1,0 +1,10 @@
+CREATE FUNCTION IF NOT EXISTS nba_regularseason_1617.left (column TEXT,num int) 
+RETURNS NULL ON NULL INPUT 
+RETURNS text 
+LANGUAGE javascript AS 
+'column.substring(0,num)';
+
+
+--test
+select left(coach_fname,1), coach_lname
+from coachinfo;

@@ -1,0 +1,12 @@
+BEGIN BATCH
+    insert into playerinfo(player_id,player_fname,player_lname,
+                            team_id,gp,min,pts,fgm,fga,"3PM","3PA",
+                            ftm,fta,oreb,dreb,ast,tov,stl,blk,pf) 
+    values (10600,'Tonny','Barton','LAC',70,25,12,10,-10,1,0,1.4,1.8,2,3.9,1.9,1.2,0.8,0.5,2.4)
+    IF NOT EXISTS;
+    
+    update playerinfo
+    set fga=0,fgm=0
+    where player_id=10600 and team_id='LAC'
+    if fga<0;
+APPLY BATCH;

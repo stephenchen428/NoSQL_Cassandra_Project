@@ -1,0 +1,4 @@
+create keyspace nba_regularseason_1617 
+with replication = {'class':'SimpleStrategy','replication_factor':1};
+
+use nba_regularseason_1617;

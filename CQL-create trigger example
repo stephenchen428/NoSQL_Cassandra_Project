@@ -1,0 +1,3 @@
+CREATE TRIGGER tri_uppercase_team_id
+  ON nba_regularseason_1617.teaminfo
+  USING 'cassandra.trigger.uppercase.java';

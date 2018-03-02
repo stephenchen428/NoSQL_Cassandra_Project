@@ -1,0 +1,17 @@
+select count(*)
+from playerinfo
+where team_id='CHI'
+allow filtering
+
+select min(pts),max(pts)
+from teamscore
+
+select sum(pts)
+from playerinfo
+where team_id='CHI'
+allow filtering
+
+select avg(pts)
+from playerinfo
+where team_id='CHI'
+allow filtering

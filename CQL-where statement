@@ -1,0 +1,6 @@
+select * from playerinfo
+where player_id in (10001,10002,10003);
+
+select * from playerinfo
+where gp>50 and pts>20
+allow filtering;
